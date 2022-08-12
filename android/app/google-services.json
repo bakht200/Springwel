@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "82951590787",
+    "project_id": "springwel-92cdc",
+    "storage_bucket": "springwel-92cdc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:82951590787:android:d4938dcf7293b72ecc1cb6",
+        "android_client_info": {
+          "package_name": "com.example.springwel"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "82951590787-qqaboh59u1o3iim89a3lghdmepb6allm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBnKIS5Xo5APALS1zBS5kMW7z38siDQDHk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "82951590787-qqaboh59u1o3iim89a3lghdmepb6allm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_web_client_id" translatable="false">82951590787-qqaboh59u1o3iim89a3lghdmepb6allm.apps.googleusercontent.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">82951590787</string>
+    <string name="google_api_key" translatable="false">AIzaSyBnKIS5Xo5APALS1zBS5kMW7z38siDQDHk</string>
+    <string name="google_app_id" translatable="false">1:82951590787:android:d4938dcf7293b72ecc1cb6</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyBnKIS5Xo5APALS1zBS5kMW7z38siDQDHk</string>
+    <string name="google_storage_bucket" translatable="false">springwel-92cdc.appspot.com</string>
+    <string name="project_id" translatable="false">springwel-92cdc</string>
+</resources>
