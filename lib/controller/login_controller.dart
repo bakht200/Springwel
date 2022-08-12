@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:springwel/screens/home_screen.dart';
 import 'package:springwel/services/login_services.dart';
 
 import '../widgets/loader.dart';
@@ -14,6 +16,9 @@ class LoginProvider extends ChangeNotifier {
     Navigator.pop(context);
     if (response != null) {
       Fluttertoast.showToast(msg: "Login Successfull");
+
+      Navigator.of(context)
+          .push(MaterialPageRoute(builder: (builder) => MyHomePage()));
     } else {
       Fluttertoast.showToast(msg: "Login Failed");
     }

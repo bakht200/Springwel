@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:springwel/config.dart';
+import 'package:springwel/main.dart';
+import 'package:springwel/screens/product_screen.dart';
 
 import '../controller/categories_controller.dart';
 
@@ -16,25 +19,33 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        elevation: 2,
         actions: [
-          const Icon(
-            Icons.logout,
-            color: Colors.white,
+          GestureDetector(
+            onTap: () {
+              Navigator.of(context).pushAndRemoveUntil(
+                  MaterialPageRoute(builder: (builder) => Login()),
+                  (route) => false);
+            },
+            child: const Icon(
+              Icons.logout,
+              color: PRIMARY_COLOR,
+            ),
           )
         ],
-        backgroundColor: PRIMARY_COLOR,
-        title: const Text(
-          'Categories',
-          style: TextStyle(color: Colors.white, fontSize: 26),
+        backgroundColor: Colors.white,
+        title: Text(
+          'Springwel',
+          style: TextStyle(color: PRIMARY_COLOR, fontSize: 26.sp),
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.only(top: 20.0),
+        padding: EdgeInsets.only(top: 20.0.h),
         child: ChangeNotifierProvider(
           create: (context) => CategoryProvider(),
           child: Builder(builder: (context) {
             final model = Provider.of<CategoryProvider>(context);
-            print(model.homestate);
+
             if (model.homestate == HomeState.loading) {
               return const Center(
                 child: CircularProgressIndicator(),
@@ -52,32 +63,39 @@ class _MyHomePageState extends State<MyHomePage> {
                 physics: PageScrollPhysics(),
                 shrinkWrap: true,
                 children: List.generate(users.length, (index) {
-                  return Card(
-                    shadowColor: PRIMARY_COLOR,
-                    elevation: 5.0,
-                    margin: EdgeInsets.all(8.0),
-                    child: Column(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(top: 8.0),
-                          child: Image.network(
-                              users[index].image == null
-                                  ? 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/1024px-No_image_available.svg.png'
-                                  : "${users[index].image?.src}",
-                              height: 140,
-                              fit: BoxFit.cover),
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Text(users[index].name.toString(),
-                            style: const TextStyle(
-                                fontSize: 24,
-                                fontWeight: FontWeight.bold,
-                                fontStyle: FontStyle.italic),
-                            maxLines: 2,
-                            overflow: TextOverflow.ellipsis),
-                      ],
+                  return GestureDetector(
+                    onTap: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (builder) =>
+                              ProductScreen(id: users[index].id!)));
+                    },
+                    child: Card(
+                      shadowColor: PRIMARY_COLOR,
+                      elevation: 5.0,
+                      margin: EdgeInsets.all(8.0.sp),
+                      child: Column(
+                        children: [
+                          Padding(
+                            padding: EdgeInsets.only(top: 8.0.h),
+                            child: Image.network(
+                                users[index].image == null
+                                    ? 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/1024px-No_image_available.svg.png'
+                                    : "${users[index].image?.src}",
+                                height: 110.h,
+                                fit: BoxFit.cover),
+                          ),
+                          SizedBox(
+                            height: 7.h,
+                          ),
+                          Text(users[index].name.toString(),
+                              style: TextStyle(
+                                  fontSize: 24.sp,
+                                  fontWeight: FontWeight.bold,
+                                  fontStyle: FontStyle.italic),
+                              maxLines: 2,
+                              overflow: TextOverflow.ellipsis),
+                        ],
+                      ),
                     ),
                   );
                 }));

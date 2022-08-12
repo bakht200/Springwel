@@ -25,4 +25,15 @@ class CategoriesServices {
 
     return products;
   }
+
+  fetchProducts() async {
+    WooCommerceAPI wooCommerceAPI = WooCommerceAPI(
+        url: "https://woocommerce-647788-2807778.cloudwaysapps.com",
+        consumerKey: "ck_4b5aba919eb2fe5bba8370cb06ab63f8c2368ba3",
+        consumerSecret: "cs_6b1b39890f21559d1571d66c8dd12fab06d90191");
+
+    var products = await wooCommerceAPI.getAsync("products");
+
+    return products;
+  }
 }

@@ -1,8 +1,10 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:springwel/config.dart';
 import 'package:springwel/screens/home_screen.dart';
+import 'package:springwel/screens/product_detail_screen.dart';
 
 import 'controller/login_controller.dart';
 import 'firebase_options.dart';
@@ -12,10 +14,16 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(MaterialApp(
-    debugShowCheckedModeBanner: false,
-    home: MyHomePage(),
-  ));
+  runApp(ScreenUtilInit(
+      designSize: const Size(360, 690),
+      minTextAdapt: true,
+      splitScreenMode: true,
+      builder: (context, child) {
+        return MaterialApp(
+          debugShowCheckedModeBanner: false,
+          home: MyHomePage(),
+        );
+      }));
 }
 
 class Login extends StatefulWidget {
@@ -44,49 +52,49 @@ class _LoginState extends State<Login> {
           return Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              const SizedBox(
-                height: 80,
+              SizedBox(
+                height: 80.h,
               ),
               Padding(
-                padding: EdgeInsets.all(20),
+                padding: EdgeInsets.all(20.sp),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    const Text(
+                    Text(
                       "Login",
-                      style: TextStyle(color: Colors.white, fontSize: 40),
+                      style: TextStyle(color: Colors.white, fontSize: 40.sp),
                     ),
                     SizedBox(
-                      height: 10,
+                      height: 10.h,
                     ),
                     Text(
                       "Welcome Back",
-                      style: TextStyle(color: Colors.white, fontSize: 18),
+                      style: TextStyle(color: Colors.white, fontSize: 18.sp),
                     ),
                   ],
                 ),
               ),
-              SizedBox(height: 20),
+              SizedBox(height: 20.h),
               Expanded(
                 child: Container(
                   decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(60),
-                          topRight: Radius.circular(60))),
+                          topLeft: Radius.circular(60.r),
+                          topRight: Radius.circular(60.r))),
                   child: SingleChildScrollView(
                     child: Padding(
-                      padding: EdgeInsets.all(30),
+                      padding: EdgeInsets.all(30.sp),
                       child: Column(
                         children: <Widget>[
                           SizedBox(
-                            height: 60,
+                            height: 60.h,
                           ),
                           Container(
                             child: Image.asset("images/logo.png"),
                           ),
                           SizedBox(
-                            height: 20,
+                            height: 20.h,
                           ),
                           Container(
                             decoration: BoxDecoration(
@@ -95,7 +103,7 @@ class _LoginState extends State<Login> {
                                 boxShadow: [
                                   BoxShadow(
                                       color: Color.fromRGBO(225, 95, 27, .3),
-                                      blurRadius: 20,
+                                      blurRadius: 20.r,
                                       offset: Offset(0, 10))
                                 ]),
                             child: Form(
@@ -121,7 +129,7 @@ class _LoginState extends State<Login> {
                                     ),
                                   ),
                                   Container(
-                                    padding: EdgeInsets.all(10),
+                                    padding: EdgeInsets.all(10.sp),
                                     decoration: BoxDecoration(
                                         border: Border(
                                             bottom: BorderSide(
@@ -143,14 +151,14 @@ class _LoginState extends State<Login> {
                             ),
                           ),
                           SizedBox(
-                            height: 40,
+                            height: 40.h,
                           ),
                           Text(
                             "Forgot Password?",
                             style: TextStyle(color: Colors.grey),
                           ),
                           SizedBox(
-                            height: 40,
+                            height: 40.h,
                           ),
                           GestureDetector(
                             onTap: () {
@@ -162,8 +170,8 @@ class _LoginState extends State<Login> {
                               }
                             },
                             child: Container(
-                              height: 50,
-                              margin: EdgeInsets.symmetric(horizontal: 50),
+                              height: 50.h,
+                              margin: EdgeInsets.symmetric(horizontal: 50.sp),
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(50),
                                   color: PRIMARY_COLOR),
@@ -178,7 +186,7 @@ class _LoginState extends State<Login> {
                             ),
                           ),
                           SizedBox(
-                            height: 50,
+                            height: 50.h,
                           ),
                         ],
                       ),
